@@ -1,3 +1,3 @@
-﻿Console.WriteLine("Hello, Username");
+﻿Console.WriteLine("Hello,");
 
 
