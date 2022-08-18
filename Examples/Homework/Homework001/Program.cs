@@ -10,26 +10,30 @@ else
     Console.WriteLine(b);
 }
 
-int a = 2; // Convert.ToInt32(Console.ReadLine());
-int b = 10; //  Convert.ToInt32(Console.ReadLine());
+// ЗАДАЧА 2 //
 
-if (a > b) 
+int a1 = 2; // Convert.ToInt32(Console.ReadLine());
+int b1 = 10; //  Convert.ToInt32(Console.ReadLine());
+
+if (a1 > b1) 
 {
-    Console.WriteLine(a);
+    Console.WriteLine(a1);
 }
 else
 {
-    Console.WriteLine(b);
+    Console.WriteLine(b1);
 }
 
-int a = -9; // Convert.ToInt32(Console.ReadLine());
-int b = -3; //  Convert.ToInt32(Console.ReadLine());
+// ЗАДАЧА 3 //
 
-if (a > b) 
+int a2 = -9; // Convert.ToInt32(Console.ReadLine());
+int b2 = -3; //  Convert.ToInt32(Console.ReadLine());
+
+if (a2 > b2) 
 {
-    Console.WriteLine(a);
+    Console.WriteLine(a2);
 }
 else
 {
-    Console.WriteLine(b);
+    Console.WriteLine(b2);
 }
