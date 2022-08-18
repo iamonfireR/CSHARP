@@ -1,11 +1,11 @@
-﻿int a =Convert.ToInt32(Console.ReadLine());
-int b =Convert.ToInt32(Console.ReadLine()); 
+﻿int firstnumber =Convert.ToInt32(Console.ReadLine());
+int secondnumber =Convert.ToInt32(Console.ReadLine()); 
 
-if (a > b) 
+if (firstnumber > secondnumber) 
 {
-    Console.WriteLine(a);
+    Console.WriteLine(firstnumber);
 }
 else
 {
-    Console.WriteLine(b);
+    Console.WriteLine(secondnumber);
 }
