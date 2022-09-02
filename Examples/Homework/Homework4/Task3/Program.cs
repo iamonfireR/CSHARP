@@ -10,17 +10,13 @@ class Program
     {
         int[] ArrayFill(int[] arr)
         {
-            Console.WriteLine("Введите количество элементов массива...");
-            int size = int.Parse(Console.ReadLine());
-            Array.Resize(ref arr, size);
-
             Console.WriteLine("Введите МИНИМАЛЬНЫЙ элемент массива...");
             int minN = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите МАКСИМАЛЬНЫЙ элемент массива...");
             int maxN = int.Parse(Console.ReadLine());
 
             
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = new Random().Next(minN, maxN);
             }
@@ -31,8 +27,10 @@ class Program
 
         }
 
-    int[] array = new int[1];
+    int size = new Random().Next(2, 25);
+    Console.WriteLine($"Генерирую массив случайного размера... Размер: {size}");
+    int[] numberArr = new int[size];
 
-    ArrayFill(array);
+    ArrayFill(numberArr);
     }
 }
