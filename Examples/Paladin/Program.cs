@@ -1,49 +1,129 @@
-﻿
-// 26
-int Paladin_health = 450;
-int Paladin_damage = 0;
-int Orc_damage = 5;
-// int Orc_health = 100;
-int Orc_quantity = 33;
-int counter = 1;
-int Rounds = 0;
+﻿int health = 55;
+int mana = 9;
+int coins = 11;
 
-while (Paladin_health > 0 && Orc_quantity > 0) 
+string[] result = new string[11];
+
+int bonusHealthValue = 6;
+int bonusManaValue = 7;
+int bonusCoinsValue = 8;
+
+int maximumPar = 0;
+int middlePar = 0;
+int bottomPar = 0;
+string max = string.Empty;
+string mid = string.Empty;
+string bot = string.Empty;
+
+int openCounter = 11;
+
+for (int i = 0; i < openCounter; i++)
 {
-    if (counter != 4) 
+    Console.WriteLine($"---ITERATION STARTED {i}---");
+    
+    if(health > mana && health > coins)
     {
-        Paladin_health = Paladin_health - (Orc_damage);
-        Console.WriteLine("Paladin's HEALTH after taking damage");
-        Console.WriteLine(Paladin_health);
-        Console.WriteLine("----------------");
-        Paladin_damage += 8;
-        Console.WriteLine("DAMAGE DONE TO ORC:");
-        Console.WriteLine(Paladin_damage);
-        Console.WriteLine("--------------------");
-        if (Paladin_damage >= 100)
+        maximumPar = health;
+        max = "Health";
+        if (mana > coins) 
         {
-            Orc_quantity -= 1;
-            Paladin_damage = 0;
-            Console.WriteLine("Orc died, Total number of Orcs left...");
-            Console.WriteLine(Orc_quantity);
+            middlePar = mana;
+            mid = "Mana";
+            bottomPar = coins;
+            bot = "Coins";
+        }
+        else
+        {
+            middlePar = coins;
+            mid = "Coins";
+            bottomPar = mana;
+            bot =  "Mana";
+        }
+    } 
+    if(mana > health && mana > coins)
+    {
+        maximumPar = mana;
+        max = "Mana";
+        if (health > coins) 
+        {
+            middlePar = health;
+            mid = "Health";
+            bottomPar = coins;
+            bot =  "Coins";
+        }
+        else
+        {
+            middlePar = coins;
+            mid = "Coins";
+            bottomPar = health;
+            bot =  "Health";
+        }
+    } 
+    if(coins > health  && coins > mana)
+    {
+        maximumPar = coins;
+        max = "Coins";
+
+        if (health > mana) 
+        {
+            middlePar = health;
+            mid = "Health";
+            bottomPar = mana;
+            bot = "Mana";
+        }
+        else
+        {
+            middlePar = mana;
+            mid = "Mana";
+            bottomPar = health;
+            bot = "Health";
         }
     }
 
-    else if (counter % 4 == 0) 
-    {
-        Paladin_health += 12;
-        counter = 0;
-        Console.WriteLine("Iteration 4 HEALING, Total health is...");
-        Console.WriteLine(Paladin_health);
-        Console.WriteLine("-----------------------------------------");
-    }
+    Console.WriteLine($"Max is {max} = {maximumPar} Mid is {mid} = {middlePar} Bot is {bot} = {bottomPar} ");
 
-    counter++;
-    Rounds++;
+    if (maximumPar > middlePar + 20)
+    {
+        if(mid == "Health") 
+        {
+            health += bonusHealthValue; 
+            result[i] += "h";
+        }
+        if(mid == "Mana")
+        {
+            mana   += bonusManaValue;
+            result[i] += "m";
+        }
+            
+             if(mid  == "Coins")
+        {
+            coins   += bonusCoinsValue;
+            result[i] += "c";
+        }
+    }
+    else if (maximumPar == middlePar + 20 || maximumPar < middlePar + 20)
+    {
+        if(max == "Health") 
+        {
+            health += bonusHealthValue; 
+            result[i] += "h";
+        }
+        if(max == "Mana")
+        {
+            mana   += bonusManaValue;
+            result[i] += "m";
+        }
+            
+        if(max  == "Coins")
+        {
+            coins   += bonusCoinsValue;
+            result[i] += "c";
+        }
+    }
+    
+
+    Console.WriteLine($"---------------------------------");
 }
 
-Console.WriteLine("Если Паладин убил всех орков, то его оставшееся здоровье составляет...");
-Console.WriteLine(Paladin_health);
-Console.WriteLine("Если Паладин погиб, то оставшееся количество орков составляет...");
-Console.WriteLine(Orc_quantity);
-Console.WriteLine(Rounds);
+Console.WriteLine($"{health} {mana} {coins}");
+Console.WriteLine(string.Join(",", result));
